@@ -29,7 +29,8 @@ config.jsdaygreeter = true
 ```
 Pass already existing element id to greet method were you want greeting to be appended.
 ```
-<%= DayGreeter.greet 'element_id' %>
+<span id='greet'></span>
+<%= DayGreeter.greet 'greet'%>
 ```
 ## Contributing
 

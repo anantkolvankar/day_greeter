@@ -5,11 +5,8 @@ module DayGreeter
 		"Hello geeks!"
 	end
 	def self.greet element_id=''
-		jsdaygreeter = defined?(Rails.application.config.jsdaygreeter) ? Rails.application.config.jsdaygreeter : false
-puts jsdaygreeter
-puts "inside greet"
-# get_msg_js(element_id)
-		greet_message = jsdaygreeter ? get_msg_js(element_id) : get_msg
+		jsdaygreeter = Rails.application.config.respond_to?(:jsdaygreeter) ? Rails.application.config.jsdaygreeter : false
+		greet_message = jsdaygreeter ? get_msg_js(element_id).html_safe : get_msg
     end
     def self.get_msg
     	hrs=Time.now.hour
@@ -32,7 +29,6 @@ puts "inside greet"
 		msg
     end
     def self.get_msg_js element_id
-    	puts "inside js"
     	"<script>var date =new Date(); var hrs = date.getHours(); var msg='';
 						function getGreeting(hrs){
 							if(hrs >  0){
@@ -53,7 +49,7 @@ puts "inside greet"
 				document.getElementById('"+element_id+"').innerHTML = msg;
 				return msg}
 				getGreeting(hrs);
-				</script>".html_safe
+				</script>"
     end
 end
 ActionView::Base.send :include, DayGreeter 
