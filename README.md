@@ -1,6 +1,6 @@
 # DayGreeter
 
-This gem allows you to greet your user with good morning, afternoon etc, based on the server timezone as a default setting.
+This gem allows you to greet your user with good morning, afternoon etc, based on the server timezone.
 
 If your users are going to be from different timezones you can use our javascript option so that they can have correct greeting based on their timezones.
 
@@ -26,6 +26,11 @@ Use below code in your view to show greeting based on time
 If your user are going to be from different timezones you just have to set config as below:-
 ```
 config.jsdaygreeter = true
+```
+##### Using JavaScript 
+Require DayGreeter JS (day_greeter.js) in your application.js
+```
+//= require day_greeter
 ```
 Pass already existing element id to greet method were you want greeting to be appended.
 ```
