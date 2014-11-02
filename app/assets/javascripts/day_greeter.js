@@ -14,7 +14,7 @@ function getGreeting(hrs){
 	if(hrs >= 17){
 		msg = 'Good evening';      //After 5pm
 	}
-	if(hrs >= 22){
+	if(hrs >= 22 || hrs == 0){
 		msg = 'Go to bed!';  
 	}
 	

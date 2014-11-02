@@ -3,6 +3,9 @@ require "day_greeter/version"
 module DayGreeter
     class Engine < ::Rails::Engine
     end
+    def self.say
+		 "Hello geeks!"
+	end
 	def self.greet element_id=''
 		jsdaygreeter = Rails.application.config.respond_to?(:jsdaygreeter) ? Rails.application.config.jsdaygreeter : false
 		greet_message = jsdaygreeter ? get_msg_js(element_id).html_safe : get_msg
@@ -22,7 +25,7 @@ module DayGreeter
 		if (hrs >= 17)
 			msg = "Good evening!";      #After 5pm
 		end
-		if (hrs >= 22)
+		if (hrs >= 22 || hrs == 0 )
 			msg = "Go to bed!";  
 		end	      # After 10pm
 		msg
