@@ -37,10 +37,15 @@ Pass already existing element id to greet method were you want greeting to be ap
 <span id='greet'></span>
 <%= DayGreeter.greet 'greet'%>
 ```
-## Contributing
+## I18n
+DayGreeter uses messages from I18n keys. To customize your app, you can set up your locale file(config/locales/en.yml):
 
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+```yaml
+en:
+  Morning_sunshine: "Morning Sunshine!"
+  Good_morning: "Good morning"
+  Good_afternoon: "Good afternoon"
+  Good_evening: "Good evening"
+  Go_to_bed: "Go to bed!"
+  Hello_geeks!: "Hello geeks!"
+```

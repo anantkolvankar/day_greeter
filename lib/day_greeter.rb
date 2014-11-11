@@ -4,7 +4,7 @@ module DayGreeter
     class Engine < ::Rails::Engine
     end
     def self.say
-		 "Hello geeks!"
+		 I18n.t(:Hello_geeks!)
 	end
 	def self.greet element_id=''
 		jsdaygreeter = Rails.application.config.respond_to?(:jsdaygreeter) ? Rails.application.config.jsdaygreeter : false
@@ -14,19 +14,19 @@ module DayGreeter
     	hrs=Time.now.hour
 		msg=say
  		if (hrs >  0)
- 			msg = "Mornin' Sunshine!" 	 #REALLY early
+ 			msg = I18n.t(:Morning_sunshine) 	 #REALLY early
 		end
 		if (hrs >=  6) 
- 			msg = "Good morning"      # After 6am
+ 			msg = I18n.t(:Good_morning)      # After 6am
 		end
 		if (hrs >= 12)
-			msg = "Good afternoon";    #After 12pm
+			msg = I18n.t(:Good_afternoon);    #After 12pm
 		end
 		if (hrs >= 17)
-			msg = "Good evening!";      #After 5pm
+			msg = I18n.t(:Good_evening);      #After 5pm
 		end
 		if (hrs >= 22 || hrs == 0 )
-			msg = "Go to bed!";  
+			msg = I18n.t(:Go_to_bed);  
 		end	      # After 10pm
 		msg
     end

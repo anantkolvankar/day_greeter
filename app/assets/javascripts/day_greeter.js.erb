@@ -1,0 +1,22 @@
+var date =new Date(); 
+var hrs = date.getHours();
+var msg='';
+function getGreeting(hrs){
+	if(hrs >  0){
+		msg = "<%= I18n.t(:Morning_sunshine) %>";	 //REALLY early
+	}
+	if(hrs >=  6){
+		msg = "<%= I18n.t(:Good_morning) %>";    //After 6am
+	}
+	if(hrs >= 12){
+		msg = "<%= I18n.t(:Good_afternoon) %>";    //After 12pm
+	}
+	if(hrs >= 17){
+		msg = "<%= I18n.t(:Good_evening) %>";      //After 5pm
+	}
+	if(hrs >= 22 || hrs == 0){
+		msg = "<%= I18n.t(:Go_to_bed) %>";  
+	}
+	
+	return msg
+}
